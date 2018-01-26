@@ -10,6 +10,18 @@ var users = require('./routes/users');
 
 var app = express();
 
+
+// database connection
+var mongoose = require('mongoose');
+
+var db = mongoose.connection;
+db.on('error', console.error);
+db.once('open', function(){
+  console.log("Connected to mongod server");
+});
+
+mongoose.connect('mongodb://localhost/unithon_db');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
