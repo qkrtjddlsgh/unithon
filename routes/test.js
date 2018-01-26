@@ -6,7 +6,7 @@ const client = new language.LanguageServiceClient();
 
 // The text to analyze
 // const text = 'Hello, world!';
-const text = '오늘은 날이 정말 좋았다. 그래서 재밌게 돌아다닐수 있어서 좋았다.오늘은 날이 정말 좋았다. 그래서 재밌게 돌아다닐수 있어서 좋았다.오늘은 날이 정말 좋았다. 그래서 재밌게 돌아다닐수 있어서 좋았다.오늘은 날이 정말 좋았다. 그래서 재밌게 돌아다닐수 있어서 좋았다.오늘은 날이 정말 좋았다. 그래서 재밌게 돌아다닐수 있어서 좋았다.오늘은 날이 정말 좋았다. 그래서 재밌게 돌아다닐수 있어서 좋았다.';
+const text = '오늘의 일기. 날이 너무 춥다. 해커톤은 2박 3일이다. 큰일이다. 너무 춥고 발이 시렵다.';
 
 const document = {
     content: text,
