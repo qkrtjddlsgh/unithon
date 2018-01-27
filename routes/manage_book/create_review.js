@@ -15,11 +15,13 @@ router.post('/', function(req, res){
     var id = recv_data.id;
     var title = recv_data.title;
     var isbn = recv_data.isbn;
+    var author = recv_data.author;
+    var image = recv_data.image;
     var content = recv_data.content;
 
     var date = today(new Date());
 
-    book.find({id: id, date: date, title: title}, function(err, result){
+    book.find({id: id, title: title}, function(err, result){
         if(err){
             console.error(err.message);
         }
@@ -28,6 +30,8 @@ router.post('/', function(req, res){
             new_book.id = id;
             new_book.date = date;
             new_book.title = title;
+            new_book.author = author;
+            new_book.image = image;
             new_book.isbn = isbn;
             new_book.content = content;
             new_book.like = [];

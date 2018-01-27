@@ -11,13 +11,14 @@ router.get('/', function(req, res){
         else{
             var add_data = new Array();
 
-            for(var i=0; i<result.length; i++){
-                if(i > 0 && result[i].isbn == result[i-1].isbn)
-                    continue;
-                else if(add_data.length < 5)
-                    add_data.push(result[i].isbn);
-                else
-                    break;
+            for(var i=0; i<5; i++){
+                var temp = new Object();
+                temp.author = result[i].author;
+                temp.image = result[i].image;
+                temp.title = result[i].title;
+                temp.isbn = result[i].isbn;
+
+                add_data.push(temp);
             }
 
             var res_data = new Object();

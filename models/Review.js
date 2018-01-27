@@ -7,6 +7,8 @@ var reviewData = new Schema({
     title : String,
     isbn : String,
     content : String,
+    author: String,
+    image: String,
     e_content : String,
     score : Number,
     like : []
