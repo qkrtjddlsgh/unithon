@@ -4,7 +4,7 @@ var router = express.Router();
 var client_id = 'Uuri286TO_0SEQFRbb7t';
 var client_secret = 'BRnt6tr_Vt';
 
-router.post('/search/book', function (req, res) {
+router.get('/search/book', function (req, res) {
     // var api_url = 'https://openapi.naver.com/v1/search/book?query=' + encodeURI(req.query.query); // json 결과
     var api_url = 'https://openapi.naver.com/v1/search/book?query=' + encodeURI(req.query.query);
 
@@ -19,7 +19,7 @@ router.post('/search/book', function (req, res) {
         if(!error && response.statusCode == 200) {
             res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
 
-            console.log(body);
+            res.send(body);
             res.end();
         }
         else{
