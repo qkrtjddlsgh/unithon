@@ -37,9 +37,12 @@ router.post('/', function(req, res){
 
             avg /= doc.length;
 
-            for(var i=0; i<doc[0].title; i++){
+            var main_title = doc[0].title;
+
+            for(var i=0; i<doc[0].title.length; i++){
                 if(doc[0].title[i] == '[' || doc[0].title[i] == '('){
-                    var main_title = doc[0].title.substr(0, i);
+                    main_title = doc[0].title.substr(0, i);
+                    break;
                 }
             }
 
