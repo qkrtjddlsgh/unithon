@@ -18,9 +18,7 @@ var translate_review = require('./routes/manage_book/translate_review');
 var push_like = require('./routes/manage_book/push_like');
 var remove_like = require('./routes/manage_book/remove_like');
 var great_review = require('./routes/manage_book/great_review');
-//var recommend_book = require('./routes/recommend_book/recommend_book');
-//var like_book = require('./routes/recommend_book/like_book');
-
+var recommend_book = require('./routes/recommend_book/recommend_book');
 
 var app = express();
 
@@ -40,7 +38,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -60,8 +58,7 @@ app.use('/translate_review', translate_review);
 app.use('/push_like', push_like);
 app.use('/remove_like', remove_like);
 app.use('/great_review', great_review);
-//app.use('/recommend_book', recommend_book);
-//app.use('/like_book', like_book);
+app.use('/recommend_book', recommend_book);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
