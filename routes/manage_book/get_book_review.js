@@ -44,7 +44,7 @@ router.post('/', function(req, res){
             else if(avg < -0.2)
                 voice = main_title + "을 읽은 다른 사람들은 조금 슬퍼하셨어요.";
             else if(avg < 0.2)
-                voice = main_title + "을 읽은 다른 사람중에 즐거워하기도 슬퍼하기도 하셨어요.";
+                voice = main_title + "을 읽은 다른 사람들은 즐거워하기도 슬퍼하기도 하셨어요.";
             else if(avg < 0.7)
                 voice = main_title + "을 읽은 다른 사람들은 조금 즐거워하셨어요.";
             else
@@ -53,7 +53,7 @@ router.post('/', function(req, res){
             var add_data = new Object();
             add_data.total = doc.length;
             add_data.like = like;
-            add_data.hate = doc.length - like
+            add_data.hate = doc.length - like;
             add_data.voice = voice;
 
 

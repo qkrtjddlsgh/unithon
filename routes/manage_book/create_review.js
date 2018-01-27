@@ -18,6 +18,7 @@ router.post('/', function(req, res){
     var author = recv_data.author;
     var image = recv_data.image;
     var content = recv_data.content;
+    var voice;
 
     var date = today(new Date());
 
@@ -53,11 +54,23 @@ router.post('/', function(req, res){
             new_book.score = sentiment.score;
             new_book.save();
 
+            if(sentiment.score < -0.7)
+                voice = "당신은" + title + "을 읽고 많이 슬프셨나봐요. ";
+            else if(sentiment.score < -0.2)
+                voice = "당신은" + title + "을 읽고 조금 슬프셨나봐요. ";
+            else if(sentiment.score < 0.2)
+                voice = "당신은" + title + "을 읽고 좋지도 싫지도 않았던 것 같아요.";
+            else if(sentiment.score < 0.7)
+                voice = "당신은" + title + "을 읽고 재밌으셨나봐요. ";
+            else
+                voice = "당신은" + title + "을 읽고 많이 즐거우셨나봐요. ";
+
         }).catch(err => {console.error('ERROR:', err);});
 
             var res_data = new Object();
             res_data.code = "9999";
             res_data.message = "Success";
+            res_data.voice = voice;
 
             res.send(res_data);
             res.end();
