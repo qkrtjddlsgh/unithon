@@ -3,9 +3,7 @@ var Schema = mongoose.Schema;
 
 var memberData = new Schema({
     id : String,
-    password : String,
-    name : String,
-    gender : String
+    name : String
 });
 
 var member = mongoose.model('member', memberData, 'members');

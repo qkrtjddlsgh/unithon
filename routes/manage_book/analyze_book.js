@@ -6,7 +6,7 @@ const client = new language.LanguageServiceClient();
 
 var express = require('express');
 var router = express.Router();
-var diary = require('../../models/Diary');
+var book = require('../../models/Book');
 
 router.post('/', function(req, res){
     var recv_data = req.body;
@@ -14,7 +14,7 @@ router.post('/', function(req, res){
     var id = recv_data.id;
     var date = recv_data.date;
 
-    diary.find({id: id, date: date}, function(err, doc){
+    book.find({id: id, date: date}, function(err, doc){
         if(err){
             console.error(err.message);
         }
@@ -39,7 +39,7 @@ router.post('/', function(req, res){
                 const sentiment = results[0].documentSentiment;
 
             var add_data = new Object();
-            add_data.test = text;
+            add_data.text = text;
             add_data.score = sentiment.score;
             add_data.magnitude = sentiment.magnitude;
 
