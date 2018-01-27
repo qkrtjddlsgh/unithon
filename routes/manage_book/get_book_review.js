@@ -37,7 +37,13 @@ router.post('/', function(req, res){
 
             avg /= doc.length;
 
-            var main_title = doc[0].title;
+            var main_title;
+
+            for(var i=0; i<doc[0].title; i++){
+                if(doc[0].title[i] == '[' || doc[0].title[i] == '('){
+                    main_title = doc[0].title.substr(0, i);
+                }
+            }
 
             if(avg < -0.7)
                 voice = main_title + "을 읽은 다른 사람들은 대부분 많이 슬퍼했어요.";

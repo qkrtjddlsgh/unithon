@@ -54,16 +54,19 @@ router.post('/', function(req, res){
             new_book.score = sentiment.score;
             new_book.save();
 
+            // 당신의 조각에서 슬픔이 느껴져요.
+            // 당신의 조각에서 기쁨이 느껴져요.
+
             if(sentiment.score < -0.7)
-                voice = "당신은" + title + "을 읽고 많이 슬프셨나봐요.";
-            else if(sentiment.score < -0.2)
-                voice = "당신은" + title + "을 읽고 조금 슬프셨나봐요.";
-            else if(sentiment.score < 0.2)
-                voice = "당신은" + title + "을 읽고 좋지도 싫지도 않았던 것 같아요.";
+                voice = "당신의 조각에서 슬픔이 느껴져요.";
+            else if(sentiment.score < 0)
+                voice = "당신의 조각에서 조금 슬픔이 느껴져요.";
+            else if(sentiment.score < 0.1)
+                voice = "당신의 조각에서 조금 기쁨이 느껴져요.";
             else if(sentiment.score < 0.7)
-                voice = "당신은" + title + "을 읽고 꽤 재미있었군요?.";
+                voice = "당신의 조각에서 조금 기쁨이 느껴져요.";
             else
-                voice = "당신은" + title + "을 읽고 많이 즐거우셨군요?.";
+                voice = "당신의 조각에서 기쁨이 느껴져요.";
 
         }).catch(err => {console.error('ERROR:', err);});
 
