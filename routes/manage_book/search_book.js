@@ -27,4 +27,8 @@ router.get('/search/book', function (req, res) {
     });
 });
 
+router.listen(44443, function () {
+    console.log('http://13.124.181.246:44443/search/book?query=검색어 app listening on port 44443!');
+});
+
 module.exports = router;
