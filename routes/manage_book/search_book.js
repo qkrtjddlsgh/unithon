@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express();
+var router = express.Router();
 
 var client_id = 'Uuri286TO_0SEQFRbb7t';
 var client_secret = 'BRnt6tr_Vt';
@@ -18,7 +18,9 @@ router.get('/search/book', function (req, res) {
     request.get(options, function (error, response, body) {
         if(!error && response.statusCode == 200) {
             res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
-            res.end(body);
+
+            console.log(body);
+            res.end();
         }
         else{
             res.status(response.statusCode).end();
