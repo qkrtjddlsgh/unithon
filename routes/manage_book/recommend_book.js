@@ -11,7 +11,7 @@ router.post('/', function(req, res){
         else{
             var add_data = new Array();
 
-            for(var i=0; i<10; i++){
+            for(var i=0; i<result.length; i++){
                 if(result[i].isbn == result[i-1].isbn)
                     continue;
                 else if(add_data.length < 5)
