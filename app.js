@@ -20,6 +20,8 @@ var remove_like = require('./routes/manage_book/remove_like');
 var great_review = require('./routes/manage_book/great_review');
 var recommend_book = require('./routes/manage_book/recommend_book');
 var create_book = require('./routes/manage_book/create_book');
+var ios_polly = require('./routes/manage_book/ios_polly');
+var ios_create_review = require('./routes/manage_book/ios_create_review');
 
 var app = express();
 
@@ -61,6 +63,8 @@ app.use('/remove_like', remove_like);
 app.use('/great_review', great_review);
 app.use('/recommend_book', recommend_book);
 app.use('/create_book', create_book);
+app.use('/ios_polly', ios_polly);
+app.use('/ios_create_review', ios_create_review);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
