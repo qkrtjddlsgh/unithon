@@ -20,6 +20,7 @@ router.post('/', function(req, res){
                 is_like = 0;
 
                 tmp.id = doc[i].id;
+                tmp.isbn = doc[i].isbn;
                 tmp.content = doc[i].content;
 
                 for(var j=0; j<doc[i].like_cnt; j++){
