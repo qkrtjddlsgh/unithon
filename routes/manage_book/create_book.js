@@ -7,12 +7,12 @@ const client = new language.LanguageServiceClient();
 var express = require('express');
 var router = express.Router();
 var book = require('../../models/Book');
+var today = require('../../util_modules/getToday');
 
 router.post('/', function(req, res){
     var recv_data = req.body;
 
     var id = recv_data.id;
-    var date = recv_data.date;
     var title = recv_data.title;
     var content = recv_data.content;
 
@@ -23,7 +23,7 @@ router.post('/', function(req, res){
         if(result.length == 0){
             var new_book = new book();
             new_book.id = id;
-            new_book.date = date;
+            new_book.date = today(new Date());
             new_book.title = title;
             new_book.content = content;
             new_book.like = 0;
@@ -41,10 +41,10 @@ router.post('/', function(req, res){
                 .then(results => {
                 const sentiment = results[0].documentSentiment;
 
-            new_book.score = sentiment.score * sentiment.magnitude;
+            new_book.score = sentiment.score;
             new_book.save();
 
-            }).catch(err => { console.error('ERROR:', err); });
+            }).catch(err => {console.error('ERROR:', err);});
 
             var res_data = new Object();
             res_data.code = "9999";
