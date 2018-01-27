@@ -72,8 +72,9 @@ router.post('/', function(req, res){
 
             var res_data = new Object();
             res_data.code = "9999";
-            res_data.message = "Success";
             res_data.voice = voice;
+            res_data.message = "Success";
+
 
             res.send(res_data);
             res.end();
