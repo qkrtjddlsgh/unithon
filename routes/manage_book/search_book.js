@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+var router = express();
 
 var client_id = 'Uuri286TO_0SEQFRbb7t';
 var client_secret = 'BRnt6tr_Vt';
@@ -25,10 +25,6 @@ router.get('/search/book', function (req, res) {
             console.log('error = ' + response.statusCode);
         }
     });
-});
-
-router.listen(44443, function () {
-    console.log('http://13.124.181.246:44443/search/book?query=검색어 app listening on port 44443!');
 });
 
 module.exports = router;
