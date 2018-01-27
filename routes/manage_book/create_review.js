@@ -55,15 +55,15 @@ router.post('/', function(req, res){
             new_book.save();
 
             if(sentiment.score < -0.7)
-                voice = "당신은" + title + "을 읽고 많이 슬프셨나봐요. ";
+                voice = "당신은" + title + "을 읽고 많이 슬프셨나봐요.";
             else if(sentiment.score < -0.2)
-                voice = "당신은" + title + "을 읽고 조금 슬프셨나봐요. ";
+                voice = "당신은" + title + "을 읽고 조금 슬프셨나봐요.";
             else if(sentiment.score < 0.2)
                 voice = "당신은" + title + "을 읽고 좋지도 싫지도 않았던 것 같아요.";
             else if(sentiment.score < 0.7)
-                voice = "당신은" + title + "을 읽고 재밌으셨나봐요. ";
+                voice = "당신은" + title + "을 읽고 꽤 재미있었군요?.";
             else
-                voice = "당신은" + title + "을 읽고 많이 즐거우셨나봐요. ";
+                voice = "당신은" + title + "을 읽고 많이 즐거우셨군요?.";
 
         }).catch(err => {console.error('ERROR:', err);});
 

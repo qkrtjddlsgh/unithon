@@ -40,22 +40,21 @@ router.post('/', function(req, res){
             var main_title = doc[0].title;
 
             if(avg < -0.7)
-                voice = main_title + "을 읽은 다른 사람들은 대부분 많이 슬퍼하셨어요.";
+                voice = main_title + "을 읽은 다른 사람들은 대부분 많이 슬퍼했어요.";
             else if(avg < -0.2)
-                voice = main_title + "을 읽은 다른 사람들은 조금 슬퍼하셨어요.";
+                voice = main_title + "을 읽은 다른 사람들은 조금 슬퍼했어요.";
             else if(avg < 0.2)
-                voice = main_title + "을 읽은 다른 사람들은 즐거워하기도 슬퍼하기도 하셨어요.";
+                voice = main_title + "을 읽은 다른 사람들은 즐거워하기도 슬퍼하기도 했어요.";
             else if(avg < 0.7)
-                voice = main_title + "을 읽은 다른 사람들은 조금 즐거워하셨어요.";
+                voice = main_title + "을 읽은 다른 사람들은 조금 즐거워했어요.";
             else
-                voice = main_title + "을 읽은 다른 사람들은 거의 다 즐거워하셨어요.";
+                voice = main_title + "을 읽은 다른 사람들은 거의 다 즐거워했어요.";
 
             var add_data = new Object();
             add_data.total = doc.length;
             add_data.like = like;
             add_data.hate = doc.length - like;
             add_data.voice = voice;
-
 
             var res_data = new Object();
             res_data.code = "9999";
@@ -69,6 +68,7 @@ router.post('/', function(req, res){
                 is_like = 0;
 
                 tmp.id = doc[i].id;
+                tmp.isbn = doc[i].isbn;
                 tmp.title = doc[i].title;
                 tmp.image = doc[i].image;
                 tmp.author = doc[i].author;
