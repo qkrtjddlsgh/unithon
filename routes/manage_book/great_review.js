@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var review = require('../../models/Review');
 
-router.get('/', function(req, res){
+router.post('/', function(req, res){
     var recv_data = req.body;
 
     var isbn = recv_data.isbn;
@@ -33,7 +33,7 @@ router.get('/', function(req, res){
             var res_data = new Object();
             res_data.code = "9999";
             res_data.response = great_review;
-            
+
             res.send(res_data);
             res.end();
         }
