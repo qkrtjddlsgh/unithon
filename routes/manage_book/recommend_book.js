@@ -11,18 +11,13 @@ router.post('/', function(req, res){
         else{
             var add_data = new Array();
 
-            for(var i=0; i<5; i++){
-                add_data.push(result[i].isbn);
-            }
-
-            var sorted_arr = add_data.slice().sort();
-
-            var results = [];
-
-            for (var i = 0; i < sorted_arr.length - 1; i++) {
-                if (sorted_arr[i + 1] == sorted_arr[i]) {
-                    results.push(sorted_arr[i]);
-                }
+            for(var i=0; i<10; i++){
+                if(result[i].isbn == result[i-1].isbn)
+                    continue;
+                else if(add_data.length < 5)
+                    add_data.push(result[i].isbn);
+                else
+                    break;
             }
 
             var res_data = new Object();
