@@ -8,7 +8,7 @@ var reviewData = new Schema({
     isbn : String,
     content : String,
     score : Number,
-    like : Number
+    like : []
 });
 
 var review = mongoose.model('review', reviewData, 'reviews');

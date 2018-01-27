@@ -10,6 +10,10 @@ var users = require('./routes/users');
 var create_review = require('./routes/manage_book/create_review');
 var search_book = require('./routes/manage_book/search_book');
 var login_module = require('./routes/manage_member/login_module');
+var remove_review = require('./routes/manage_book/remove_review');
+var update_review = require('./routes/manage_book/update_review');
+var get_my_review = require('./routes/manage_book/get_my_review');
+var get_book_review = require('./routes/manage_book/get_book_review');
 //var recommend_book = require('./routes/recommend_book/recommend_book');
 //var like_book = require('./routes/recommend_book/like_book');
 
@@ -41,9 +45,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/create_book', create_review);
+app.use('/create_review', create_review);
 app.use('/search_book', search_book);
 app.use('/login_module', login_module);
+app.use('/remove_review', remove_review);
+app.use('/update_review', update_review);
+app.use('/get_my_review', get_my_review);
+app.use('/get_book_review', get_book_review);
 //app.use('/recommend_book', recommend_book);
 //app.use('/like_book', like_book);
 
