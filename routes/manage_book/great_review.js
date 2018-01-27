@@ -22,7 +22,7 @@ router.post('/', function(req, res){
                 tmp.content = doc[i].content;
 
                 for(var j=0; j<doc[i].like.length; j++){
-                    if(doc[i].like[j].name == name){
+                    if(doc[i].like[j].member_id == member_id){
                         is_like = 1;
                         break;
                     }
