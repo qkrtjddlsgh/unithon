@@ -30,7 +30,7 @@ router.put('/', function(req, res){
             }
 
             if(chk){
-                review.update({_id: _id}, {$push: {like: member_id}}, function(err, result) {
+                review.update({_id: _id}, {$addToSet: {like: {id: "member_id"}}}, function(err, result) {
                     if(err){
                         console.error(err.message);
                     }
