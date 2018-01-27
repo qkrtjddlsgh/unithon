@@ -1,12 +1,16 @@
 var express = require('express');
-var router = express();
+var router = express.Router();
 
 var client_id = 'Uuri286TO_0SEQFRbb7t';
 var client_secret = 'BRnt6tr_Vt';
 
 router.get('/search/book', function (req, res) {
+
+    // var query = req.body.query;
+
     // var api_url = 'https://openapi.naver.com/v1/search/book?query=' + encodeURI(req.query.query); // json 결과
     var api_url = 'https://openapi.naver.com/v1/search/book?query=' + encodeURI(req.query.query);
+    // var api_url = 'https://openapi.naver.com/v1/search/book?query=' + query;
 
     var request = require('request');
 
@@ -27,6 +31,4 @@ router.get('/search/book', function (req, res) {
     });
 });
 
-app.listen(44444, function () {
-    console.log('http://127.0.0.1:3000/search/book?query=검색어 app listening on port 3000!');
-});
+module.exports = router;
