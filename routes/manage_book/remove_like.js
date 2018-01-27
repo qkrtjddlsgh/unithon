@@ -27,7 +27,7 @@ router.put('/', function(req, res){
         else{
 
             for(var i=0; i<result[0].like.length; i++){
-                if(result[0].like.id == id){
+                if(result[0].like[i].id == id){
                     chk = 0;
                 }
             }
