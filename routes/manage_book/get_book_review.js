@@ -6,8 +6,10 @@ router.post('/', function(req, res){
     var recv_data = req.body;
 
     var isbn = recv_data.isbn;
+    var name = recv_data.name;
 
     var like = 0;
+    var is_like = 0;
 
     review.find({isbn: isbn}, function(err, doc){
         if(err){
@@ -37,7 +39,32 @@ router.post('/', function(req, res){
             var res_data = new Object();
             res_data.code = "9999";
             res_data.response = add_data;
-            res_data.review = doc;
+            //res_data.review = doc;
+
+            var doc_data = new Array();
+
+            for(var i=0; i<doc.length; i++){
+
+                var tmp = new Object();
+                is_like = 0;
+
+                tmp.title = doc[i].title;
+                tmp.image = doc[i].image;
+                tmp.author = doc[i].author;
+                tmp.content = doc[i].content;
+
+                for(var j=0; j<doc[i].like.length; j++){
+                    if(doc[i].like[j].name == name){
+                        is_like = 1;
+                        break;
+                    }
+                }
+
+                tmp.is_like = is_like;
+                doc_data.push(tmp);
+            }
+
+            res_data.review = doc_data;
 
             res.send(res_data);
             res.end();
