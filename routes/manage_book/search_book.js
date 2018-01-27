@@ -6,7 +6,7 @@ var client_secret = 'BRnt6tr_Vt';
 
 router.get('/search/blog', function (req, res) {
     // var api_url = 'https://openapi.naver.com/v1/search/book?query=' + encodeURI(req.query.query); // json 결과
-    var api_url = 'https://openapi.naver.com/v1/search/book?query=' + title;
+    var api_url = 'https://openapi.naver.com/v1/search/book?query=' + encodeURI(req.query.query);
 
     var request = require('request');
 
