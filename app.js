@@ -17,6 +17,7 @@ var get_book_review = require('./routes/manage_book/get_book_review');
 var translate_review = require('./routes/manage_book/translate_review');
 var push_like = require('./routes/manage_book/push_like');
 var remove_like = require('./routes/manage_book/remove_like');
+var great_review = require('./routes/manage_book/great_review');
 //var recommend_book = require('./routes/recommend_book/recommend_book');
 //var like_book = require('./routes/recommend_book/like_book');
 
@@ -58,6 +59,7 @@ app.use('/get_book_review', get_book_review);
 app.use('/translate_review', translate_review);
 app.use('/push_like', push_like);
 app.use('/remove_like', remove_like);
+app.use('/great_review', great_review);
 //app.use('/recommend_book', recommend_book);
 //app.use('/like_book', like_book);
 
