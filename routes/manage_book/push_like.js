@@ -24,13 +24,13 @@ router.put('/', function(req, res){
         }
         else{
             for(var i=0; i<result[0].like.length; i++){
-                if(result[0].like.id == id){
+                if(result[0].like.id == member_id){
                     chk = 0;
                 }
             }
 
             if(chk){
-                review.update({_id: _id}, {$addToSet: {like: {id: "member_id"}}}, function(err, result) {
+                review.update({_id: _id}, {$addToSet: {like: {"id": member_id}}}, function(err, result) {
                     if(err){
                         console.error(err.message);
                     }
