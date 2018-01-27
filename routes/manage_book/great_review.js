@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();
 var review = require('../../models/Review');
 
-router.get('/', function(req, res){
+router.post('/', function(req, res){
 
+    var id = req.body.id;
     var is_like = 0;
 
     review.find().sort({like_cnt: -1}).exec(function(err, doc){
@@ -21,8 +22,8 @@ router.get('/', function(req, res){
                 tmp.id = doc[i].id;
                 tmp.content = doc[i].content;
 
-                for(var j=0; j<doc[i].like.length; j++){
-                    if(doc[i].like[j].member_id == member_id){
+                for(var j=0; j<doc[i].like_cnt; j++){
+                    if(doc[i].like[j].member_id == id){
                         is_like = 1;
                         break;
                     }
