@@ -18,7 +18,7 @@ var translate_review = require('./routes/manage_book/translate_review');
 var push_like = require('./routes/manage_book/push_like');
 var remove_like = require('./routes/manage_book/remove_like');
 var great_review = require('./routes/manage_book/great_review');
-var recommend_book = require('./routes/recommend_book/recommend_book');
+var recommend_book = require('./routes/manage_book/recommend_book');
 
 var app = express();
 
