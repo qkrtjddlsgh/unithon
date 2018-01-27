@@ -11,7 +11,7 @@ router.post('/', function(req, res){
     var like = 0;
     var is_like = 0;
 
-    review.find({isbn: isbn}, function(err, doc){
+    review.find({isbn: isbn}).sort({like_cnt: -1}).exec(function(err, doc){
         if(err){
             console.error(err.message);
         }
