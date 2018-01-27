@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var review = require('../../models/Review');
+var review = require('../../models/Book');
 
 router.get('/', function(req, res){
 
