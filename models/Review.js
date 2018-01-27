@@ -12,7 +12,8 @@ var reviewData = new Schema({
     e_content : String,
     score : Number,
     like : [],
-    like_cnt : Number
+    like_cnt : Number,
+    after_voice : String
 });
 
 var review = mongoose.model('review', reviewData, 'reviews');

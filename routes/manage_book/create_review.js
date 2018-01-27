@@ -18,7 +18,7 @@ router.post('/', function(req, res){
     var author = recv_data.author;
     var image = recv_data.image;
     var content = recv_data.content;
-    var voice;
+    var after_voice;
 
     var date = today(new Date());
 
@@ -52,29 +52,30 @@ router.post('/', function(req, res){
                 const sentiment = results[0].documentSentiment;
 
             new_book.score = sentiment.score;
-            new_book.save();
 
             // 당신의 조각에서 슬픔이 느껴져요.
             // 당신의 조각에서 기쁨이 느껴져요.
 
             if(sentiment.score < -0.7)
-                voice = "당신의 조각에서 슬픔이 느껴져요.";
+                after_voice = "당신의 조각에서 슬픔이 느껴져요.";
             else if(sentiment.score < 0)
-                voice = "당신의 조각에서 조금 슬픔이 느껴져요.";
+                after_voice = "당신의 조각에서 조금 슬픔이 느껴져요.";
             else if(sentiment.score < 0.1)
-                voice = "당신의 조각에서 조금 기쁨이 느껴져요.";
+                after_voice = "당신의 조각에서 조금 기쁨이 느껴져요.";
             else if(sentiment.score < 0.7)
-                voice = "당신의 조각에서 조금 기쁨이 느껴져요.";
+                after_voice = "당신의 조각에서 조금 기쁨이 느껴져요.";
             else
-                voice = "당신의 조각에서 기쁨이 느껴져요.";
+                after_voice = "당신의 조각에서 기쁨이 느껴져요.";
+
+            new_book.after_voice = after_voice;
+            new_book.save();
 
         }).catch(err => {console.error('ERROR:', err);});
 
             var res_data = new Object();
             res_data.code = "9999";
-            res_data.voice = voice;
+            res_data.after_voice = after_voice;
             res_data.message = "Success";
-
 
             res.send(res_data);
             res.end();

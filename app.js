@@ -22,6 +22,7 @@ var recommend_book = require('./routes/manage_book/recommend_book');
 var create_book = require('./routes/manage_book/create_book');
 var ios_polly = require('./routes/manage_book/ios_polly');
 var ios_create_review = require('./routes/manage_book/ios_create_review');
+var call_polly = require('./routes/manage_book/call_polly');
 
 var app = express();
 
@@ -65,6 +66,7 @@ app.use('/recommend_book', recommend_book);
 app.use('/create_book', create_book);
 app.use('/ios_polly', ios_polly);
 app.use('/ios_create_review', ios_create_review);
+app.use('/call_polly', call_polly);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
