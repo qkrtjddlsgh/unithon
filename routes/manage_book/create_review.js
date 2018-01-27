@@ -21,7 +21,7 @@ router.post('/', function(req, res){
 
     var date = today(new Date());
 
-    book.find({id: id, title: title}, function(err, result){
+    book.find({id: id, isbn: isbn, title: title}, function(err, result){
         if(err){
             console.error(err.message);
         }
