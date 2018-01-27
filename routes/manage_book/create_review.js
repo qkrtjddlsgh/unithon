@@ -48,7 +48,7 @@ router.post('/', function(req, res){
             new_book.score = sentiment.score;
             new_book.save();
 
-            }).catch(err => {console.error('ERROR:', err);});
+        }).catch(err => {console.error('ERROR:', err);});
 
             var res_data = new Object();
             res_data.code = "9999";

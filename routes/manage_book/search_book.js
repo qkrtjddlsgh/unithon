@@ -5,7 +5,6 @@ var client_id = 'Uuri286TO_0SEQFRbb7t';
 var client_secret = 'BRnt6tr_Vt';
 
 router.get('/search/book', function (req, res) {
-
     var api_url = 'https://openapi.naver.com/v1/search/book?query=' + encodeURI(req.query.query);
 
     var request = require('request');

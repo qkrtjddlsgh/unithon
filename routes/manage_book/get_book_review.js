@@ -7,6 +7,8 @@ router.post('/', function(req, res){
 
     var isbn = recv_data.isbn;
 
+    var like = 0;
+
     review.find({isbn: isbn}, function(err, doc){
         if(err){
             console.error(err.message);
@@ -15,6 +17,30 @@ router.post('/', function(req, res){
             var res_data = new Object();
             res_data.code = "8888";
             res_data.message = "No book";
+
+            res.send(res_data);
+            res.end();
+        }
+        else{
+
+            for(var i=0; i<doc.length; i++){
+                if(doc[i].score >= 0){
+                    like++;
+                }
+            }
+
+            var add_data = new Object();
+            add_data.total = doc.length;
+            add_data.like = like;
+            add_data.hate = doc.length - like;
+
+            var res_data = new Object();
+            res_data.code = "9999";
+            res_data.response = add_data;
+            res_data.review = doc;
+
+            res.send(res_data);
+            res.end();
         }
     });
 });

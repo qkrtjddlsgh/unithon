@@ -14,6 +14,7 @@ var remove_review = require('./routes/manage_book/remove_review');
 var update_review = require('./routes/manage_book/update_review');
 var get_my_review = require('./routes/manage_book/get_my_review');
 var get_book_review = require('./routes/manage_book/get_book_review');
+var translate_review = require('./routes/manage_book/translate_review');
 //var recommend_book = require('./routes/recommend_book/recommend_book');
 //var like_book = require('./routes/recommend_book/like_book');
 
@@ -52,6 +53,7 @@ app.use('/remove_review', remove_review);
 app.use('/update_review', update_review);
 app.use('/get_my_review', get_my_review);
 app.use('/get_book_review', get_book_review);
+app.use('/translate_review', translate_review);
 //app.use('/recommend_book', recommend_book);
 //app.use('/like_book', like_book);
 
