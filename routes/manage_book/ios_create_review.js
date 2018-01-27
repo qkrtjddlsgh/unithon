@@ -47,7 +47,6 @@ router.post('/', function(req, res){
             for(var i=0; i<doc.length; i++){
 
                 var tmp = new Object();
-                is_like = 0;
 
                 tmp.id = doc[i].id;
                 tmp.isbn = doc[i].isbn;
