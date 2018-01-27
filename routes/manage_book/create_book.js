@@ -16,6 +16,8 @@ router.post('/', function(req, res){
     var title = recv_data.title;
     var content = recv_data.content;
 
+    var date = today(new Date());
+
     book.find({id: id, date: date, title: title}, function(err, result){
         if(err){
             console.error(err.message);
@@ -23,7 +25,7 @@ router.post('/', function(req, res){
         if(result.length == 0){
             var new_book = new book();
             new_book.id = id;
-            new_book.date = today(new Date());
+            new_book.date = date;
             new_book.title = title;
             new_book.content = content;
             new_book.like = 0;
