@@ -5,7 +5,7 @@ var review = require('../../models/Review');
 router.put('/', function(req, res){
     var recv_data = req.body;
 
-    var name = recv_data.name;
+    var member_id = recv_data.member_id;
     var id = recv_data.id; // 클라이언트에서 넘겨받은 현재 접속 멤버 id
     var isbn = recv_data.isbn;
 
@@ -26,7 +26,7 @@ router.put('/', function(req, res){
         else{
 
             for(var i=0; i<result[0].like.length; i++){
-                if(result[0].like[i].name == name){
+                if(result[0].like[i].member_id == member_id){
                     chk = 0;
                 }
             }
@@ -48,7 +48,7 @@ router.put('/', function(req, res){
                     }
                 });
 
-                review.update({id: id, isbn: isbn}, {$pull: {like: {"name": name}}}, function(err, result) {
+                review.update({id: id, isbn: isbn}, {$pull: {like: {"member_id": member_id}}}, function(err, result) {
                     if(err){
                         console.error(err.message);
                     }
