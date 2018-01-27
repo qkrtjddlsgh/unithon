@@ -6,7 +6,7 @@ const client = new language.LanguageServiceClient();
 
 var express = require('express');
 var router = express.Router();
-var book = require('../../models/Book');
+var book = require('../../models/Review');
 var today = require('../../util_modules/getToday');
 
 router.post('/', function(req, res){
@@ -14,6 +14,7 @@ router.post('/', function(req, res){
 
     var id = recv_data.id;
     var title = recv_data.title;
+    var isbn = recv_data.isbn;
     var content = recv_data.content;
 
     var date = today(new Date());
@@ -27,6 +28,7 @@ router.post('/', function(req, res){
             new_book.id = id;
             new_book.date = date;
             new_book.title = title;
+            new_book.isbn = isbn;
             new_book.content = content;
             new_book.like = 0;
 

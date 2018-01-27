@@ -7,8 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var create_book = require('./routes/manage_book/create_book');
-var analyze_book = require('./routes/manage_book/analyze_book');
+var create_review = require('./routes/manage_book/create_review');
 var search_book = require('./routes/manage_book/search_book');
 var login_module = require('./routes/manage_member/login_module');
 //var recommend_book = require('./routes/recommend_book/recommend_book');
@@ -42,8 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/create_book', create_book);
-app.use('/analyze_book', analyze_book);
+app.use('/create_book', create_review);
 app.use('/search_book', search_book);
 app.use('/login_module', login_module);
 //app.use('/recommend_book', recommend_book);

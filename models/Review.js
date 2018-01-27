@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var bookData = new Schema({
+var reviewData = new Schema({
     id : String,
     date : String,
     title : String,
@@ -11,6 +11,6 @@ var bookData = new Schema({
     like : Number
 });
 
-var book = mongoose.model('book', bookData, 'books');
+var review = mongoose.model('review', reviewData, 'reviews');
 
-module.exports = book;
+module.exports = review;
