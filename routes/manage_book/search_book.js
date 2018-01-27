@@ -26,3 +26,5 @@ router.get('/search/blog', function (req, res) {
         }
     });
 });
+
+module.exports = router;
