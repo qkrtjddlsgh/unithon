@@ -27,4 +27,6 @@ router.get('/search/book', function (req, res) {
     });
 });
 
-module.exports = router;
+app.listen(44444, function () {
+    console.log('http://127.0.0.1:3000/search/book?query=검색어 app listening on port 3000!');
+});
