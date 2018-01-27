@@ -11,8 +11,8 @@ var create_book = require('./routes/manage_book/create_book');
 var analyze_book = require('./routes/manage_book/analyze_book');
 //var search_book = require('./routes/manage_book/search_book');
 var login_module = require('./routes/manage_member/login_module');
-var recommend_book = require('./routes/recommend_book/recommend_book');
-var like_book = require('./routes/recommend_book/like_book');
+//var recommend_book = require('./routes/recommend_book/recommend_book');
+//var like_book = require('./routes/recommend_book/like_book');
 
 
 var app = express();
@@ -46,8 +46,8 @@ app.use('/create_book', create_book);
 app.use('/analyze_book', analyze_book);
 //app.use('/search_book', search_book);
 app.use('/login_module', login_module);
-app.use('/recommend_book', recommend_book);
-app.use('/like_book', like_book);
+//app.use('/recommend_book', recommend_book);
+//app.use('/like_book', like_book);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
