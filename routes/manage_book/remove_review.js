@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var book = require('../../models/Review');
 
-router.post('/', function(req, res){
+router.put('/', function(req, res){
     var recv_data = req.body;
 
     var id = recv_data.id;
