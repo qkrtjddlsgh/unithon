@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var review = require('../../models/Review');
 
-router.post('/', function(req, res){
+router.get('/', function(req, res){
 
     review.find().sort({score: -1}).exec(function(err, result){
         if(err){
