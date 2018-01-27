@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express;
+var router = express();
 
 var client_id = 'Uuri286TO_0SEQFRbb7t';
 var client_secret = 'BRnt6tr_Vt';
