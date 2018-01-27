@@ -40,6 +40,14 @@ router.put('/', function(req, res){
                 res.end();
             }
             else{
+                var new_cnt = result[0].like_cnt - 1;
+
+                review.update({id: id, isbn: isbn}, {$set: {like_cnt: new_cnt}}, function(err, doc){
+                    if(err){
+                        console.error(err.message);
+                    }
+                });
+
                 review.update({id: id, isbn: isbn}, {$pull: {like: {"name": name}}}, function(err, result) {
                     if(err){
                         console.error(err.message);

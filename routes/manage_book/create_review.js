@@ -35,6 +35,7 @@ router.post('/', function(req, res){
             new_book.isbn = isbn;
             new_book.content = content;
             new_book.like = [];
+            new_book.like_cnt = 0;
 
             // The text to analyze
             const text = content;
