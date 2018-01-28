@@ -45,6 +45,7 @@ router.post('/', function(req, res){
             var doc_data = new Array();
 
             for(var i=0; i<doc.length; i++){
+                is_like = 0;
 
                 var tmp = new Object();
 
